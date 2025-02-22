@@ -2,6 +2,7 @@ package com.tuguego.app
 
 import android.app.Application
 import com.tuguego.app.core.di.coreModule
+import com.tuguego.app.features.auth.di.authModule
 import org.koin.android.ext.koin.androidContext
 import org.koin.core.context.startKoin
 import org.osmdroid.config.Configuration
@@ -17,7 +18,10 @@ class MyApp : Application() {
 
         startKoin {
             androidContext(this@MyApp)
-            modules(coreModule)
+            modules(
+                coreModule,
+                authModule
+            )
         }
     }
 }

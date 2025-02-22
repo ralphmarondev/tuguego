@@ -13,10 +13,12 @@ import androidx.core.content.ContextCompat
 import com.google.android.gms.location.FusedLocationProviderClient
 import com.google.android.gms.location.LocationServices
 import com.google.android.gms.tasks.Task
-import com.tuguego.app.features.home.presentation.map.MapScreen
-import com.tuguego.app.ui.theme.TugueGoTheme
+import com.tuguego.app.core.data.local.preferences.AppPreferences
+import com.tuguego.app.navigation.AppNavigation
+import org.koin.android.ext.android.inject
 
 class MainActivity : ComponentActivity() {
+    private val preferences: AppPreferences by inject()
     private lateinit var fusedLocationClient: FusedLocationProviderClient
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -28,9 +30,9 @@ class MainActivity : ComponentActivity() {
         checkAndRequestLocationPermission()
 
         setContent {
-            TugueGoTheme {
-                MapScreen()
-            }
+            AppNavigation(
+                preferences = preferences
+            )
         }
     }
 
