@@ -75,11 +75,9 @@ dependencies {
     //noinspection KaptUsageInsteadOfKsp
     kapt(libs.androidx.room.compiler)
 
-//    implementation(libs.play.services.maps)
-//    implementation(libs.maps.compose)
-//    implementation(libs.android.sdk)
-
     implementation("org.osmdroid:osmdroid-android:6.1.16")
+
+    implementation("com.google.android.gms:play-services-location:18.0.0")
 
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)

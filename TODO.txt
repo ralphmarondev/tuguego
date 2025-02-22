@@ -1,0 +1,3 @@
+- Integrate maps to app => done
+- Populate map with static user and driver [done]
+- Get user location
